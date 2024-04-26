@@ -168,22 +168,33 @@ while place_order:
 
         # 5. Check the customer's input
         # Keep ordering
-        if keep_ordering.lower() == "y":
-            # Exit the keep ordering question loop
-            break
-        # Stop ordering
-        elif keep_ordering.lower() == "n":
-            # Since the customer decided to stop ordering, thank them for
-            # their order
-            print("Thank you for your order.")
-            place_order = False
-            # Complete the order
-            # Exit the keep ordering question loop
-            break
-        # Tell the customer to try again
-        else:
-            # Tell the customer to try again
-            print("Please type [Y] for yes or [N] for no.")
+        match keep_ordering:
+            case "y":
+                break
+            case "n":
+                print("Thank you for your order.")
+                place_order = False
+                break
+            case _:
+                print("Please type [Y] for yes or [N] for no.")
+
+        #  reformat to match requirements
+        # if keep_ordering.lower() == "y":
+        #     # Exit the keep ordering question loop
+        #     break
+        # # Stop ordering
+        # elif keep_ordering.lower() == "n":
+        #     # Since the customer decided to stop ordering, thank them for
+        #     # their order
+        #     print("Thank you for your order.")
+        #     place_order = False
+        #     # Complete the order
+        #     # Exit the keep ordering question loop
+        #     break
+        # # Tell the customer to try again
+        # else:
+        #     # Tell the customer to try again
+        #     print("Please type [Y] for yes or [N] for no.")
 
 # Print out the customer's order
 print("This is what we are preparing for you.\n")
